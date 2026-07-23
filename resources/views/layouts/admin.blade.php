@@ -126,7 +126,7 @@
             <a href="{{ route('admin.ventas.index') }}" class="{{ request()->routeIs('admin.ventas.*') ? 'active' : '' }}">Ventas</a>
             <a href="{{ route('admin.servidores.index') }}" class="{{ request()->routeIs('admin.servidores.*') ? 'active' : '' }}">Servidores</a>
             <a href="{{ route('admin.planes.index') }}" class="{{ request()->routeIs('admin.planes.*') ? 'active' : '' }}">Planes y precios</a>
-            <a href="{{ route('admin.adicionales.index') }}" class="{{ request()->routeIs('admin.adicionales.*') ? 'active' : '' }}">Adicionales</a>
+            <a href="{{ route('admin.adicionales.index') }}" class="{{ request()->routeIs('admin.adicionales.*') ? 'active' : '' }}">Cotizador</a>
             <a href="{{ route('admin.configuracion.edit') }}" class="{{ request()->routeIs('admin.configuracion.*') ? 'active' : '' }}">Configuración</a>
         </nav>
         <div class="admin-top-right">

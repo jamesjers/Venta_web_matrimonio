@@ -11,7 +11,7 @@
     <div class="page-head">
         <div>
             <h1>{{ $editando ? 'Editar plan' : 'Nuevo plan' }}</h1>
-            <p>Define el precio y lo que incluye. Se refleja en la página de ventas.</p>
+            <p>Define el precio y las características internas. En la página pública solo se muestran el nombre, la descripción y el precio.</p>
         </div>
         <a href="{{ route('admin.planes.index') }}" class="btn btn-light">← Volver</a>
     </div>
@@ -35,7 +35,7 @@
             <div class="grid-2">
                 <div class="field">
                     <label>Precio (texto libre)</label>
-                    <input type="text" name="precio" value="{{ old('precio', $plan->precio) }}" placeholder="Ej: S/ 299 o A medida" required>
+                    <input type="text" name="precio" value="{{ old('precio', $plan->precio) }}" placeholder="Ej: $799.000 COP o A medida" required>
                 </div>
                 <div class="field">
                     <label>Orden</label>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="field">
-                <label>Características (una por línea)</label>
+                <label>Características internas (una por línea)</label>
                 <textarea name="caracteristicas" placeholder="Invitación digital personalizada&#10;Recordatorios por WhatsApp&#10;Dominio y hosting por 1 año">{{ $caracteristicasTexto }}</textarea>
             </div>
 

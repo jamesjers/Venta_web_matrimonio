@@ -61,7 +61,7 @@
 
             <div class="grid-2">
                 <div class="field">
-                    <label>Costo anual (S/)</label>
+                    <label>Costo anual (COP)</label>
                     <input type="number" step="0.01" name="costo_anual" value="{{ old('costo_anual', $servidor->costo_anual ?? 0) }}" min="0">
                 </div>
                 <div class="field">

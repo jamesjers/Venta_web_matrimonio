@@ -17,7 +17,7 @@
             <div class="l">Ventas registradas</div>
         </div>
         <div class="stat">
-            <div class="v">S/ {{ number_format((float) $ingresos, 2) }}</div>
+            <div class="v">$ {{ number_format((float) $ingresos, 0, ',', '.') }} COP</div>
             <div class="l">Ingresos (confirmadas+)</div>
         </div>
         <div class="stat">
@@ -59,7 +59,7 @@
                                     <span class="muted" style="font-size:0.82rem;">{{ $venta->plan ?: 'Sin plan' }}</span>
                                 </td>
                                 <td><span class="chip chip-{{ $venta->estado }}">{{ $venta->estadoLabel() }}</span></td>
-                                <td style="text-align:right;font-weight:700;">S/ {{ number_format((float) $venta->precio, 2) }}</td>
+                                <td style="text-align:right;font-weight:700;">$ {{ number_format((float) $venta->precio, 0, ',', '.') }} COP</td>
                             </tr>
                         @endforeach
                     </tbody>

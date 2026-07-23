@@ -10,8 +10,12 @@ Proyecto Laravel 12 independiente, pensado para desplegarse en un **subdominio**
 - **Landing pública** en `/` — diseño moderno, con los servicios (ubicación, invitación,
   recordatorios, recuerdos, fotos compartidas en vivo, ingreso con QR, mesas), personalización a
   medida y la promesa de dominio + hosting por 1 año con los nombres de los novios.
-- **2 planes** (Básico y Premium). Desde el plan Básico se ofrece el dominio con los nombres de la
-  pareja. Los precios se administran desde el panel.
+- **5 planes**. El plan Invitación inicia en **$799.000 COP** para 100 personas y los precios de
+  todos los planes se administran desde el panel.
+- **Cotización personalizada** desde el plan Invitación: permite calcular invitados, cantidad de
+  fotos y servicios elegidos, y preparar el resumen para enviarlo por WhatsApp.
+- Las características detalladas de los planes son información interna: se gestionan en el
+  administrador y se consultan al registrar una venta, pero no se muestran en la landing.
 - **Panel de administración** en `/admin` (requiere login):
   - Ventas, Servidores, Planes y precios, y Configuración (marca, WhatsApp, correo, textos).
 
@@ -57,6 +61,19 @@ php artisan serve
 
 Casi todo se edita **sin tocar código** desde `/admin`:
 
-- **Planes y precios** → valor de venta, nombre, características y plan destacado.
+- **Planes y precios** → valor de venta, nombre, características internas y plan destacado.
+- **Cotizador** → valor numérico, unidad y forma de cálculo de cada servicio disponible.
 - **Configuración** → marca, WhatsApp, correo y textos del hero.
 - **Ventas** y **Servidores** → gestión interna del negocio.
+
+## Precios configurados
+
+- Invitación: $799.000 COP.
+- Gestión de Invitados: $1.240.000 COP.
+- Organización y Mesas: $1.740.000 COP.
+- Experiencia y Recuerdos: $2.540.000 COP.
+- Premium: $3.840.000 COP.
+
+El plan Invitación incluye perfil de administración, revisión y actualización del estado de las
+invitaciones, música en la tarjeta, ubicación de ceremonia y recepción, código de vestimenta,
+opciones de regalo y capacidad para 100 personas. Este detalle solo se muestra dentro del panel.

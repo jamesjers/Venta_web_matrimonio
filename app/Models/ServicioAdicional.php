@@ -13,6 +13,9 @@ class ServicioAdicional extends Model
     protected $fillable = [
         'nombre',
         'precio',
+        'precio_valor',
+        'tipo_calculo',
+        'unidad',
         'orden',
         'activo',
     ];
@@ -20,6 +23,8 @@ class ServicioAdicional extends Model
     protected $casts = [
         'activo' => 'boolean',
         'orden' => 'integer',
+        'precio_valor' => 'decimal:2',
+        'unidad' => 'integer',
     ];
 
     /**
@@ -54,22 +59,24 @@ class ServicioAdicional extends Model
     public static function porDefecto(): Collection
     {
         $items = [
-            ['50 invitados adicionales', '$90.000 COP'],
-            ['100 invitados adicionales', '$150.000 COP'],
-            ['Carga inicial de invitados', 'Desde $120.000 COP'],
-            ['Organización completa de mesas', 'Desde $250.000 COP'],
-            ['1.000 fotografías adicionales', '$120.000 COP'],
-            ['Activación de carga de videos', '$250.000 COP'],
-            ['Diseño exclusivo desde cero', 'Desde $300.000 COP'],
-            ['Soporte remoto durante el evento', '$250.000 COP'],
-            ['Soporte presencial hasta cuatro horas', 'Desde $650.000 COP'],
-            ['Operador para moderación de fotografías', 'Desde $350.000 COP'],
-            ['Renovación anual de dominio y alojamiento', 'Desde $350.000 COP'],
+            ['Invitados adicionales', '$90.000 COP por cada 50', 90000, 'invitados', 50],
+            ['Galería y fotos compartidas', '$450.000 COP por cada 1.000 fotos', 450000, 'fotografias', 1000],
+            ['Carga inicial de invitados', '$120.000 COP', 120000, 'seleccion', 1],
+            ['Organización completa de mesas', '$250.000 COP', 250000, 'seleccion', 1],
+            ['Activación de carga de videos', '$250.000 COP', 250000, 'seleccion', 1],
+            ['Diseño exclusivo desde cero', '$300.000 COP', 300000, 'seleccion', 1],
+            ['Soporte remoto durante el evento', '$250.000 COP', 250000, 'seleccion', 1],
+            ['Soporte presencial hasta cuatro horas', '$650.000 COP', 650000, 'seleccion', 1],
+            ['Operador para moderación de fotografías', '$350.000 COP', 350000, 'seleccion', 1],
+            ['Renovación anual de dominio y alojamiento', '$350.000 COP', 350000, 'seleccion', 1],
         ];
 
         return collect($items)->map(fn ($item) => new self([
             'nombre' => $item[0],
             'precio' => $item[1],
+            'precio_valor' => $item[2],
+            'tipo_calculo' => $item[3],
+            'unidad' => $item[4],
         ]));
     }
 }

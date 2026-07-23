@@ -5,25 +5,16 @@
 @section('content')
     @php
         $editando = $venta->exists;
-        $serviciosDisponibles = [
-            'Ubicación e itinerario',
-            'Invitación digital personalizada',
-            'Recordatorios por WhatsApp',
-            'Recuerdos (fotos y videos)',
-            'Fotos compartidas durante el evento',
-            'Control de ingreso con QR',
-            'Distribución de mesas',
-            'Gestión de invitados',
-            'Presupuesto y checklist',
-            'Diseño y visual a medida',
-            'Dominio con los nombres de los novios',
-            'Historia de la pareja',
-        ];
         $serviciosVenta = old('servicios', is_array($venta->servicios) ? $venta->servicios : []);
         // Servicios escritos a mano que no están en la lista estándar.
         $serviciosExtra = old('servicios_extra', collect(is_array($venta->servicios) ? $venta->servicios : [])
             ->reject(fn ($s) => in_array($s, $serviciosDisponibles))
             ->implode("\n"));
+        $planesJson = json_encode($planes->map(fn ($plan) => [
+            'nombre' => $plan->nombre,
+            'precio' => $plan->precio,
+            'caracteristicas' => $plan->caracteristicas ?? [],
+        ])->values(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
     @endphp
 
     <div class="page-head">
@@ -66,13 +57,13 @@
                     <label>Plan</label>
                     <input type="text" name="plan" list="planes-list" value="{{ old('plan', $venta->plan) }}" placeholder="Ej: Completo">
                     <datalist id="planes-list">
-                        @foreach ($planes as $nombrePlan)
-                            <option value="{{ $nombrePlan }}"></option>
+                        @foreach ($planes as $plan)
+                            <option value="{{ $plan->nombre }}"></option>
                         @endforeach
                     </datalist>
                 </div>
                 <div class="field">
-                    <label>Precio de venta (S/)</label>
+                    <label>Precio de venta (COP)</label>
                     <input type="number" step="0.01" name="precio" value="{{ old('precio', $venta->precio ?? 0) }}" min="0">
                 </div>
                 <div class="field">
@@ -83,6 +74,11 @@
                         @endforeach
                     </select>
                 </div>
+            </div>
+
+            <div id="detalle-plan" class="panel" style="display:none;margin:-2px 0 18px;padding:16px;background:#f7fafc;box-shadow:none;">
+                <strong id="detalle-plan-titulo" style="color:var(--azul);"></strong>
+                <ul id="detalle-plan-lista" style="columns:2;margin:10px 0 0;padding-left:20px;"></ul>
             </div>
 
             <div class="field">
@@ -148,4 +144,45 @@
             </div>
         </form>
     </div>
+
+    <script>
+        (function () {
+            var planes = {!! $planesJson !!};
+            var inputPlan = document.querySelector('input[name="plan"]');
+            var inputPrecio = document.querySelector('input[name="precio"]');
+            var detalle = document.getElementById('detalle-plan');
+            var titulo = document.getElementById('detalle-plan-titulo');
+            var lista = document.getElementById('detalle-plan-lista');
+
+            function valorNumerico(precio) {
+                var digitos = String(precio || '').replace(/\D/g, '');
+                return digitos ? Number(digitos) : 0;
+            }
+
+            function mostrarPlan(actualizarPrecio) {
+                var plan = planes.find(function (item) { return item.nombre === inputPlan.value; });
+                if (!plan) {
+                    detalle.style.display = 'none';
+                    return;
+                }
+
+                titulo.textContent = 'Características internas de ' + plan.nombre;
+                lista.innerHTML = '';
+                plan.caracteristicas.forEach(function (caracteristica) {
+                    var item = document.createElement('li');
+                    item.textContent = caracteristica;
+                    lista.appendChild(item);
+                });
+                detalle.style.display = 'block';
+
+                if (actualizarPrecio) {
+                    inputPrecio.value = valorNumerico(plan.precio);
+                }
+            }
+
+            inputPlan.addEventListener('change', function () { mostrarPlan(true); });
+            inputPlan.addEventListener('input', function () { mostrarPlan(false); });
+            mostrarPlan(false);
+        })();
+    </script>
 @endsection

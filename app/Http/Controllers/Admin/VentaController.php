@@ -26,7 +26,8 @@ class VentaController extends Controller
         return view('admin.ventas.form', [
             'venta' => new Venta(['estado' => 'cotizacion']),
             'servidores' => Servidor::query()->orderBy('nombre')->get(),
-            'planes' => PlanVenta::query()->orderBy('orden')->pluck('nombre'),
+            'planes' => PlanVenta::query()->orderBy('orden')->orderBy('id')->get(),
+            'serviciosDisponibles' => $this->serviciosDisponibles(),
         ]);
     }
 
@@ -43,7 +44,8 @@ class VentaController extends Controller
         return view('admin.ventas.form', [
             'venta' => $venta,
             'servidores' => Servidor::query()->orderBy('nombre')->get(),
-            'planes' => PlanVenta::query()->orderBy('orden')->pluck('nombre'),
+            'planes' => PlanVenta::query()->orderBy('orden')->orderBy('id')->get(),
+            'serviciosDisponibles' => $this->serviciosDisponibles(),
         ]);
     }
 
@@ -103,5 +105,19 @@ class VentaController extends Controller
         $data['precio'] = (float) ($data['precio'] ?? 0);
 
         return $data;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function serviciosDisponibles(): array
+    {
+        return PlanVenta::query()
+            ->orderBy('orden')
+            ->get()
+            ->flatMap(fn (PlanVenta $plan) => $plan->caracteristicas ?? [])
+            ->unique()
+            ->values()
+            ->all();
     }
 }

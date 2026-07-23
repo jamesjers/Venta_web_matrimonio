@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 
 class PlanVenta extends Model
 {
@@ -65,19 +65,19 @@ class PlanVenta extends Model
                 'nombre' => 'Invitación',
                 'subtitulo' => 'La invitación digital esencial',
                 'descripcion' => 'Una invitación digital elegante con toda la información del evento en un solo lugar.',
-                'precio' => '$849.000 COP',
+                'precio' => '$799.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
-                    'Diseño personalizado basado en plantilla',
+                    'Perfil de administración',
+                    'Revisión del estado de las invitaciones',
+                    'Actualización de invitaciones',
+                    'Música en la tarjeta de invitación',
+                    'Hasta 100 invitados',
+                    'Ubicación de la ceremonia y la recepción',
+                    'Código de vestimenta',
+                    'Opciones de regalo',
                     'Dominio y alojamiento por un año',
                     'Certificado de seguridad SSL',
-                    'Hasta 100 invitados',
-                    'Fecha y cuenta regresiva',
-                    'Ubicación con Google Maps',
-                    'Mesa de regalos',
-                    'Confirmación básica de asistencia',
-                    'Código QR de acceso',
-                    'Dos rondas de ajustes',
                 ],
                 'infraestructura' => 'Servidor de 1 vCPU, 1 GB de RAM y 10 GB de almacenamiento.',
             ]),
@@ -85,7 +85,7 @@ class PlanVenta extends Model
                 'nombre' => 'Gestión de Invitados',
                 'subtitulo' => 'Confirmaciones y cupos en un panel',
                 'descripcion' => 'Ideal para administrar confirmaciones, cupos y acompañantes desde un solo panel.',
-                'precio' => '$1.290.000 COP',
+                'precio' => '$1.240.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Todo lo del Plan Invitación',
@@ -102,7 +102,7 @@ class PlanVenta extends Model
                 'nombre' => 'Organización y Mesas',
                 'subtitulo' => 'Ubica a tus invitados en la recepción',
                 'descripcion' => 'Organiza a tus invitados y facilita su ubicación durante la recepción.',
-                'precio' => '$1.790.000 COP',
+                'precio' => '$1.740.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Todo lo del Plan Gestión de Invitados',
@@ -118,7 +118,7 @@ class PlanVenta extends Model
                 'nombre' => 'Experiencia y Recuerdos',
                 'subtitulo' => 'Organiza y comparte los recuerdos en vivo',
                 'descripcion' => 'La experiencia completa para organizar el evento y compartir los recuerdos en tiempo real.',
-                'precio' => '$2.590.000 COP',
+                'precio' => '$2.540.000 COP',
                 'destacado' => true,
                 'caracteristicas' => [
                     'Todo lo del Plan Organización y Mesas',
@@ -135,7 +135,7 @@ class PlanVenta extends Model
                 'nombre' => 'Premium',
                 'subtitulo' => 'La experiencia exclusiva con acompañamiento',
                 'descripcion' => 'Una experiencia exclusiva con mayor capacidad, personalización y acompañamiento durante el evento.',
-                'precio' => '$3.890.000 COP',
+                'precio' => '$3.840.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Todo lo del Plan Experiencia y Recuerdos',

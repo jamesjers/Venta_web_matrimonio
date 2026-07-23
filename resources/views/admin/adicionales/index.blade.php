@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Servicios adicionales')
+@section('title', 'Cotización personalizada')
 
 @section('content')
     <div class="page-head">
         <div>
-            <h1>Servicios adicionales</h1>
-            <p>Se muestran en la página de ventas. Los precios se editan aquí.</p>
+            <h1>Opciones de cotización</h1>
+            <p>Administran el cálculo personalizado; no se publican como una lista independiente.</p>
         </div>
         <a href="{{ route('admin.adicionales.create') }}" class="btn btn-primary">+ Nuevo servicio</a>
     </div>
@@ -18,6 +18,7 @@
                     <th>Orden</th>
                     <th>Servicio</th>
                     <th>Precio</th>
+                    <th>Cálculo</th>
                     <th>Estado</th>
                     <th style="text-align:right;">Acciones</th>
                 </tr>
@@ -28,6 +29,13 @@
                         <td>{{ $servicio->orden }}</td>
                         <td><strong>{{ $servicio->nombre }}</strong></td>
                         <td style="font-weight:700;">{{ $servicio->precio }}</td>
+                        <td>
+                            {{ match($servicio->tipo_calculo) {
+                                'invitados' => 'Por cada '.$servicio->unidad.' invitados',
+                                'fotografias' => 'Por cada '.number_format($servicio->unidad, 0, ',', '.').' fotos',
+                                default => 'Selección única',
+                            } }}
+                        </td>
                         <td>{!! $servicio->activo ? '<span class="chip chip-activo">Activo</span>' : '<span class="chip chip-inactivo">Oculto</span>' !!}</td>
                         <td style="text-align:right;white-space:nowrap;">
                             <a href="{{ route('admin.adicionales.edit', $servicio) }}" class="btn btn-sm btn-light">Editar</a>
@@ -38,7 +46,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="5" class="muted" style="text-align:center;padding:26px;">No hay servicios adicionales. <a href="{{ route('admin.adicionales.create') }}">Crear el primero →</a></td></tr>
+                    <tr><td colspan="6" class="muted" style="text-align:center;padding:26px;">No hay opciones. <a href="{{ route('admin.adicionales.create') }}">Crear la primera →</a></td></tr>
                 @endforelse
             </tbody>
         </table>

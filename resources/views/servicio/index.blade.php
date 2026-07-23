@@ -207,35 +207,38 @@
         .plan .price { font-size: 1.9rem; font-weight: 800; line-height: 1.1; }
         .plan.top .price { color: var(--oro); }
         .plan:not(.top) .price { color: var(--petroleo); }
-        .plan ul { list-style: none; padding: 0; margin: 18px 0 20px; display: grid; gap: 10px; }
-        .plan li { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; }
-        .plan li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--petroleo-2); }
-        .plan.top li svg { color: var(--oro); }
-        .plan .infra { font-size: .78rem; opacity: .7; line-height: 1.45; border-top: 1px solid rgba(120,140,170,.25); padding-top: 12px; margin-bottom: 18px; }
+        .plan .desc { min-height: 68px; }
         .plan .btn { margin-top: auto; justify-content: center; width: 100%; padding: 13px; }
         .plan:not(.top) .btn-plan { background: var(--azul-2); color: #fff; }
         .plan.top .btn-plan { background: linear-gradient(120deg,var(--oro),var(--oro-2)); color: var(--azul-2); }
         .planes-hint { text-align: center; color: var(--suave); font-size: .85rem; margin-top: 6px; }
 
-        /* Tabla comparativa */
-        .tabla-wrap { overflow-x: auto; border-radius: 18px; border: 1px solid var(--borde,#e4ebf2); box-shadow: 0 16px 40px rgba(14,40,72,.08); }
-        table.comparativa { width: 100%; border-collapse: collapse; background: #fff; min-width: 720px; }
-        table.comparativa th, table.comparativa td { padding: 14px 16px; text-align: center; border-bottom: 1px solid #eef2f7; font-size: .92rem; }
-        table.comparativa thead th { background: var(--azul-2); color: #fff; font-weight: 700; }
-        table.comparativa thead th:first-child { text-align: left; border-top-left-radius: 18px; }
-        table.comparativa tbody th { text-align: left; font-weight: 600; color: var(--azul-2); background: #f7fafc; }
-        table.comparativa tbody tr:last-child td, table.comparativa tbody tr:last-child th { border-bottom: none; }
-        table.comparativa .si { color: var(--petroleo); font-weight: 800; }
-        table.comparativa .no { color: #c2ccd8; }
-        table.comparativa .precio-row td, table.comparativa .precio-row th { font-weight: 800; color: var(--azul-2); background: #eef6f5; }
-
-        /* Servicios adicionales */
-        .adic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; max-width: 900px; margin: 0 auto; }
-        .adic { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #d9e2ec; }
-        .adic .n { color: var(--tinta); }
-        .adic .p { font-weight: 800; color: var(--petroleo); white-space: nowrap; }
-        .adic-nota { text-align: center; color: var(--suave); font-size: .86rem; max-width: 720px; margin: 26px auto 0; }
-        @media (max-width: 680px) { .adic-grid { grid-template-columns: 1fr; } }
+        /* Cotización personalizada */
+        .cotizador { background: #fff; }
+        .cotiza-box { display: grid; grid-template-columns: 1.25fr .75fr; gap: 28px; align-items: start; }
+        .cotiza-opciones, .cotiza-total { border: 1px solid #e4ebf2; border-radius: 22px; padding: 26px; box-shadow: 0 16px 40px rgba(14,40,72,.08); }
+        .cotiza-total { position: sticky; top: 88px; background: linear-gradient(160deg,#0a1c39,#0e5a5c); color: #fff; }
+        .cotiza-opciones h3, .cotiza-total h3 { margin: 0 0 6px; font-size: 1.25rem; }
+        .cotiza-ayuda { margin: 0 0 22px; color: var(--suave); font-size: .92rem; }
+        .cotiza-cantidades { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        .cotiza-campo label { display: block; font-weight: 800; color: var(--azul-2); margin-bottom: 6px; }
+        .cotiza-campo small { display: block; color: var(--suave); margin-top: 5px; }
+        .cotiza-campo input { width: 100%; border: 1px solid #dbe5ee; border-radius: 12px; padding: 12px 14px; font: inherit; color: var(--tinta); }
+        .cotiza-campo input:focus { outline: 3px solid rgba(22,161,155,.2); border-color: var(--petroleo-2); }
+        .cotiza-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .cotiza-servicio { display: flex; gap: 11px; align-items: flex-start; border: 1px solid #e4ebf2; border-radius: 14px; padding: 14px; cursor: pointer; }
+        .cotiza-servicio:has(input:checked) { border-color: var(--petroleo-2); background: #eef8f7; }
+        .cotiza-servicio input { margin-top: 5px; accent-color: var(--petroleo); }
+        .cotiza-servicio span { display: block; font-weight: 700; color: var(--azul-2); line-height: 1.3; }
+        .cotiza-servicio small { color: var(--petroleo); }
+        .cotiza-total .desde { opacity: .75; font-size: .78rem; text-transform: uppercase; letter-spacing: 1.4px; }
+        .cotiza-total .valor { color: var(--oro); font-size: clamp(2rem,4vw,2.7rem); font-weight: 800; line-height: 1.1; margin: 4px 0 18px; }
+        .cotiza-resumen { list-style: none; padding: 16px 0; margin: 0 0 20px; border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); display: grid; gap: 8px; font-size: .9rem; }
+        .cotiza-resumen li { display: flex; justify-content: space-between; gap: 12px; }
+        .cotiza-total .btn { width: 100%; justify-content: center; padding: 13px 18px; }
+        .cotiza-nota { margin: 14px 0 0; opacity: .72; font-size: .78rem; line-height: 1.45; }
+        @media (max-width: 860px) { .cotiza-box { grid-template-columns: 1fr; } .cotiza-total { position: static; } }
+        @media (max-width: 620px) { .cotiza-cantidades, .cotiza-lista { grid-template-columns: 1fr; } }
 
         /* Testimonio */
         .testi { text-align: center; }
@@ -270,6 +273,7 @@
                 <a href="#servicios">Servicios</a>
                 <a href="#personalizacion">Personalización</a>
                 <a href="#planes">Planes</a>
+                <a href="#cotizador">Cotiza</a>
                 <a class="nav-cta" href="{{ $waLink }}" @if($wa !== '') target="_blank" rel="noopener" @endif>Solicitar</a>
             </nav>
         </div>
@@ -368,7 +372,7 @@
                     <ul class="ft-list">
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Visual y colores a elección</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Solo los servicios que necesitan</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Servicios adicionales a solicitud</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Cotización personalizada según sus necesidades</li>
                     </ul>
                 </div>
             </div>
@@ -429,11 +433,10 @@
             <div class="head reveal">
                 <div class="kicker">Planes para tu matrimonio</div>
                 <h2>Elige el plan según lo que necesitas</h2>
-                <p>Del básico al premium: crece cuando quieras. Los precios pueden variar según invitados, personalización, almacenamiento y servicios adicionales.</p>
+                <p>Comienza con la invitación digital o elige una solución de mayor alcance. Los detalles de cada plan se revisan contigo en la cotización.</p>
             </div>
             <div class="planes-scroll reveal">
                 @foreach ($planes as $plan)
-                    @php $car = is_array($plan->caracteristicas) ? $plan->caracteristicas : []; @endphp
                     <div class="plan {{ $plan->destacado ? 'top' : '' }}">
                         @if ($plan->destacado)<span class="badge">Más elegido</span>@endif
                         <h3>{{ $plan->nombre }}</h3>
@@ -441,12 +444,6 @@
                         <div class="desde">Desde</div>
                         <div class="price">{{ $plan->precio }}</div>
                         @if (!empty($plan->descripcion))<p class="desc">{{ $plan->descripcion }}</p>@endif
-                        <ul>
-                            @foreach ($car as $item)
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>{{ $item }}</li>
-                            @endforeach
-                        </ul>
-                        @if (!empty($plan->infraestructura))<div class="infra">🖥️ {{ $plan->infraestructura }}</div>@endif
                         @php $planMsg = rawurlencode('Hola, me interesa el plan '.$plan->nombre.' para mi matrimonio.'); @endphp
                         <a class="btn btn-plan" href="{{ $wa !== '' ? "https://wa.me/{$wa}?text={$planMsg}" : '#contacto' }}" @if($wa !== '') target="_blank" rel="noopener" @endif>Quiero este plan</a>
                     </div>
@@ -456,87 +453,71 @@
         </div>
     </section>
 
-    <!-- TABLA COMPARATIVA -->
+    <!-- COTIZACIÓN PERSONALIZADA -->
     @php
-        // Matriz de comparacion (por posicion de plan). Se muestra si hay planes.
-        $filasComparativa = [
-            ['Invitación personalizada', ['Sí', 'Sí', 'Sí', 'Sí', 'Exclusiva']],
-            ['Confirmación de asistencia', ['Sí', 'Sí', 'Sí', 'Sí', 'Sí']],
-            ['Gestión de cupos', ['Básica', 'Sí', 'Sí', 'Sí', 'Sí']],
-            ['Panel administrativo', ['No', 'Sí', 'Sí', 'Sí', 'Sí']],
-            ['Organización de mesas', ['No', 'No', 'Sí', 'Sí', 'Sí']],
-            ['Carga de fotografías', ['No', 'No', 'No', 'Sí', 'Sí']],
-            ['Presentación en vivo', ['No', 'No', 'No', 'Sí', 'Sí']],
-            ['Soporte durante el evento', ['No', 'No', 'No', 'Remoto', 'Presencial']],
-            ['Invitados incluidos', ['100', '200', '250', '250', '400']],
-        ];
-        $mostrarComparativa = $planes->count() === count($filasComparativa[0][1]);
+        $planBase = $planes->firstWhere('nombre', 'Invitación') ?? $planes->first();
+        $precioBase = (int) preg_replace('/\D/', '', (string) optional($planBase)->precio);
+        $precioBase = $precioBase > 0 ? $precioBase : 799000;
+        $opcionInvitados = $adicionales->firstWhere('tipo_calculo', 'invitados');
+        $opcionFotos = $adicionales->firstWhere('tipo_calculo', 'fotografias');
+        $opcionesSeleccion = $adicionales->where('tipo_calculo', 'seleccion');
     @endphp
-    @if ($mostrarComparativa)
-    <section>
-        <div class="wrap">
-            <div class="head reveal">
-                <div class="kicker">Comparación</div>
-                <h2>Todos los planes lado a lado</h2>
-                <p>Compara lo que incluye cada plan y elige con confianza.</p>
-            </div>
-            <div class="tabla-wrap reveal">
-                <table class="comparativa">
-                    <thead>
-                        <tr>
-                            <th>Característica</th>
-                            @foreach ($planes as $plan)
-                                <th>{{ $plan->nombre }}</th>
-                            @endforeach
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($filasComparativa as [$etiqueta, $valores])
-                            <tr>
-                                <th>{{ $etiqueta }}</th>
-                                @foreach ($valores as $v)
-                                    <td>
-                                        @if ($v === 'Sí')<span class="si">Sí</span>
-                                        @elseif ($v === 'No')<span class="no">—</span>
-                                        @else {{ $v }}@endif
-                                    </td>
-                                @endforeach
-                            </tr>
-                        @endforeach
-                        <tr class="precio-row">
-                            <th>Precio desde</th>
-                            @foreach ($planes as $plan)
-                                <td>{{ $plan->precio }}</td>
-                            @endforeach
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-    @endif
-
-    <!-- SERVICIOS ADICIONALES -->
-    @if ($adicionales->isNotEmpty())
-    <section class="feature-band">
+    <section id="cotizador" class="cotizador">
         <div class="wrap">
             <div class="head reveal">
                 <div class="kicker">A tu medida</div>
-                <h2>Servicios adicionales</h2>
-                <p>Complementa cualquier plan con lo que necesites. Precios de referencia.</p>
+                <h2>Arma tu cotización personalizada</h2>
+                <p>Partimos del Plan Invitación para 100 personas. Ajusta cantidades y elige únicamente los servicios que deseas.</p>
             </div>
-            <div class="adic-grid reveal">
-                @foreach ($adicionales as $servicio)
-                    <div class="adic">
-                        <span class="n">{{ $servicio->nombre }}</span>
-                        <span class="p">{{ $servicio->precio }}</span>
+            <div class="cotiza-box reveal" id="cotiza-app" data-base="{{ $precioBase }}" data-whatsapp="{{ $wa }}">
+                <div class="cotiza-opciones">
+                    <h3>Configura tu experiencia</h3>
+                    <p class="cotiza-ayuda">El total cambia automáticamente según tus elecciones.</p>
+
+                    <div class="cotiza-cantidades">
+                        <div class="cotiza-campo">
+                            <label for="cotiza-invitados">Cantidad de invitados</label>
+                            <input id="cotiza-invitados" type="number" min="100" max="1000"
+                                step="{{ max(1, (int) ($opcionInvitados->unidad ?? 50)) }}" value="100"
+                                data-precio="{{ (float) ($opcionInvitados->precio_valor ?? 0) }}"
+                                data-unidad="{{ max(1, (int) ($opcionInvitados->unidad ?? 50)) }}">
+                            <small>El plan base incluye 100 personas.</small>
+                        </div>
+                        <div class="cotiza-campo">
+                            <label for="cotiza-fotos">Cantidad de fotos</label>
+                            <input id="cotiza-fotos" type="number" min="0" max="10000"
+                                step="{{ max(1, (int) ($opcionFotos->unidad ?? 1000)) }}" value="0"
+                                data-precio="{{ (float) ($opcionFotos->precio_valor ?? 0) }}"
+                                data-unidad="{{ max(1, (int) ($opcionFotos->unidad ?? 1000)) }}">
+                            <small>Selecciona 0 si no necesitas galería compartida.</small>
+                        </div>
                     </div>
-                @endforeach
+
+                    @if ($opcionesSeleccion->isNotEmpty())
+                        <h3>Servicios disponibles</h3>
+                        <p class="cotiza-ayuda">Estas opciones solo aparecen dentro de tu cotización.</p>
+                        <div class="cotiza-lista">
+                            @foreach ($opcionesSeleccion as $servicio)
+                                <label class="cotiza-servicio">
+                                    <input type="checkbox" class="cotiza-check" value="{{ $servicio->nombre }}" data-precio="{{ (float) $servicio->precio_valor }}">
+                                    <span>{{ $servicio->nombre }}<small>{{ $servicio->precio }}</small></span>
+                                </label>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+
+                <aside class="cotiza-total" aria-live="polite">
+                    <h3>Tu cotización estimada</h3>
+                    <div class="desde">Valor final</div>
+                    <div class="valor" id="cotiza-valor">$ {{ number_format($precioBase, 0, ',', '.') }} COP</div>
+                    <ul class="cotiza-resumen" id="cotiza-resumen"></ul>
+                    <a class="btn btn-oro" id="cotiza-whatsapp" href="{{ $waLink }}" @if($wa !== '') target="_blank" rel="noopener" @endif>Solicitar esta cotización</a>
+                    <p class="cotiza-nota">Este valor es una estimación. Confirmaremos alcance, disponibilidad y condiciones antes de iniciar.</p>
+                </aside>
             </div>
-            <p class="adic-nota">Los valores pueden variar según el número de invitados, nivel de personalización, almacenamiento requerido, ubicación del evento y servicios adicionales contratados.</p>
         </div>
     </section>
-    @endif
 
     <!-- TESTIMONIO -->
     <section class="testi">
@@ -575,6 +556,78 @@
     </footer>
 
     <script>
+        (function () {
+            var app = document.getElementById('cotiza-app');
+            if (!app) return;
+
+            var base = Number(app.dataset.base || 799000);
+            var whatsapp = app.dataset.whatsapp || '';
+            var invitados = document.getElementById('cotiza-invitados');
+            var fotos = document.getElementById('cotiza-fotos');
+            var checks = Array.from(document.querySelectorAll('.cotiza-check'));
+            var valor = document.getElementById('cotiza-valor');
+            var resumen = document.getElementById('cotiza-resumen');
+            var boton = document.getElementById('cotiza-whatsapp');
+            var formato = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            });
+
+            function itemResumen(nombre, precio) {
+                var item = document.createElement('li');
+                var etiqueta = document.createElement('span');
+                var monto = document.createElement('strong');
+                etiqueta.textContent = nombre;
+                monto.textContent = formato.format(precio);
+                item.append(etiqueta, monto);
+                resumen.appendChild(item);
+            }
+
+            function calcular() {
+                var cantidadInvitados = Math.max(100, Number(invitados.value || 100));
+                var unidadInvitados = Number(invitados.dataset.unidad || 50);
+                var bloquesInvitados = Math.ceil(Math.max(0, cantidadInvitados - 100) / unidadInvitados);
+                var costoInvitados = bloquesInvitados * Number(invitados.dataset.precio || 0);
+
+                var cantidadFotos = Math.max(0, Number(fotos.value || 0));
+                var unidadFotos = Number(fotos.dataset.unidad || 1000);
+                var bloquesFotos = Math.ceil(cantidadFotos / unidadFotos);
+                var costoFotos = bloquesFotos * Number(fotos.dataset.precio || 0);
+
+                var seleccionados = checks.filter(function (check) { return check.checked; });
+                var costoServicios = seleccionados.reduce(function (suma, check) {
+                    return suma + Number(check.dataset.precio || 0);
+                }, 0);
+                var total = base + costoInvitados + costoFotos + costoServicios;
+
+                valor.textContent = formato.format(total);
+                resumen.innerHTML = '';
+                itemResumen('Plan Invitación · 100 personas', base);
+                if (costoInvitados > 0) itemResumen((cantidadInvitados - 100) + ' invitados adicionales', costoInvitados);
+                if (costoFotos > 0) itemResumen(cantidadFotos.toLocaleString('es-CO') + ' fotos', costoFotos);
+                seleccionados.forEach(function (check) {
+                    itemResumen(check.value, Number(check.dataset.precio || 0));
+                });
+
+                if (whatsapp) {
+                    var lineas = [
+                        'Hola, quiero solicitar esta cotización personalizada:',
+                        '- Plan Invitación para ' + cantidadInvitados + ' personas',
+                        '- Fotos: ' + cantidadFotos.toLocaleString('es-CO')
+                    ];
+                    seleccionados.forEach(function (check) { lineas.push('- ' + check.value); });
+                    lineas.push('Total estimado: ' + formato.format(total));
+                    boton.href = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(lineas.join('\n'));
+                }
+            }
+
+            invitados.addEventListener('input', calcular);
+            fotos.addEventListener('input', calcular);
+            checks.forEach(function (check) { check.addEventListener('change', calcular); });
+            calcular();
+        })();
+
         (function () {
             var els = document.querySelectorAll('.reveal');
             if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }

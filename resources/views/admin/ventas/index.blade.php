@@ -32,7 +32,7 @@
                             <span class="muted" style="font-size:0.82rem;">{{ $venta->contacto_nombre ?: $venta->telefono ?: '—' }}</span>
                         </td>
                         <td>{{ $venta->plan ?: '—' }}</td>
-                        <td style="font-weight:700;">S/ {{ number_format((float) $venta->precio, 2) }}</td>
+                        <td style="font-weight:700;">$ {{ number_format((float) $venta->precio, 0, ',', '.') }} COP</td>
                         <td><span class="chip chip-{{ $venta->estado }}">{{ $venta->estadoLabel() }}</span></td>
                         <td>
                             {{ $venta->dominio ?: '—' }}<br>

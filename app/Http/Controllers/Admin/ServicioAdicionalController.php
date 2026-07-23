@@ -61,6 +61,9 @@ class ServicioAdicionalController extends Controller
         $data = $request->validate([
             'nombre' => ['required', 'string', 'max:190'],
             'precio' => ['required', 'string', 'max:80'],
+            'precio_valor' => ['required', 'numeric', 'min:0'],
+            'tipo_calculo' => ['required', 'in:seleccion,invitados,fotografias'],
+            'unidad' => ['required', 'integer', 'min:1'],
             'orden' => ['nullable', 'integer', 'min:0'],
             'activo' => ['nullable', 'boolean'],
         ]);

@@ -7,8 +7,8 @@
 
     <div class="page-head">
         <div>
-            <h1>{{ $editando ? 'Editar servicio adicional' : 'Nuevo servicio adicional' }}</h1>
-            <p>Nombre y precio tal como aparecerán en la página.</p>
+            <h1>{{ $editando ? 'Editar opción de cotización' : 'Nueva opción de cotización' }}</h1>
+            <p>Configura cómo se calcula esta opción dentro de la cotización personalizada.</p>
         </div>
         <a href="{{ route('admin.adicionales.index') }}" class="btn btn-light">← Volver</a>
     </div>
@@ -25,8 +25,27 @@
 
             <div class="grid-2">
                 <div class="field">
-                    <label>Precio (texto libre)</label>
-                    <input type="text" name="precio" value="{{ old('precio', $servicio->precio) }}" placeholder="Ej: $90.000 COP o Desde $120.000 COP" required>
+                    <label>Precio mostrado</label>
+                    <input type="text" name="precio" value="{{ old('precio', $servicio->precio) }}" placeholder="Ej: $90.000 COP por cada 50" required>
+                </div>
+                <div class="field">
+                    <label>Valor para el cálculo (COP)</label>
+                    <input type="number" name="precio_valor" value="{{ old('precio_valor', $servicio->precio_valor ?? 0) }}" min="0" step="1" required>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="field">
+                    <label>Forma de cálculo</label>
+                    <select name="tipo_calculo" required>
+                        <option value="seleccion" {{ old('tipo_calculo', $servicio->tipo_calculo ?? 'seleccion') === 'seleccion' ? 'selected' : '' }}>Selección única</option>
+                        <option value="invitados" {{ old('tipo_calculo', $servicio->tipo_calculo) === 'invitados' ? 'selected' : '' }}>Cantidad de invitados</option>
+                        <option value="fotografias" {{ old('tipo_calculo', $servicio->tipo_calculo) === 'fotografias' ? 'selected' : '' }}>Cantidad de fotos</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Unidad cobrada</label>
+                    <input type="number" name="unidad" value="{{ old('unidad', $servicio->unidad ?? 1) }}" min="1" step="1" required>
                 </div>
                 <div class="field">
                     <label>Orden</label>
@@ -36,7 +55,7 @@
 
             <div class="field check-line">
                 <input type="checkbox" id="activo" name="activo" value="1" {{ old('activo', $servicio->activo ?? true) ? 'checked' : '' }}>
-                <label for="activo" style="margin:0;">Mostrar en la página</label>
+                <label for="activo" style="margin:0;">Disponible en la cotización personalizada</label>
             </div>
 
             <div class="form-actions">
