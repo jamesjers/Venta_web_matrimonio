@@ -60,15 +60,20 @@ class ServicioAdicionalController extends Controller
     {
         $data = $request->validate([
             'nombre' => ['required', 'string', 'max:190'],
+            'descripcion' => ['required', 'string', 'max:300'],
             'precio' => ['required', 'string', 'max:80'],
             'precio_valor' => ['required', 'numeric', 'min:0'],
+            'precio_adicional' => ['nullable', 'numeric', 'min:0'],
             'tipo_calculo' => ['required', 'in:seleccion,invitados,fotografias'],
             'unidad' => ['required', 'integer', 'min:1'],
+            'requiere_fotos' => ['nullable', 'boolean'],
             'orden' => ['nullable', 'integer', 'min:0'],
             'activo' => ['nullable', 'boolean'],
         ]);
 
         $data['activo'] = $request->boolean('activo');
+        $data['requiere_fotos'] = $request->boolean('requiere_fotos');
+        $data['precio_adicional'] = (float) ($data['precio_adicional'] ?? 0);
         $data['orden'] = (int) ($data['orden'] ?? 0);
 
         return $data;

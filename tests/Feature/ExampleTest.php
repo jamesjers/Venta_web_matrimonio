@@ -25,6 +25,10 @@ class ExampleTest extends TestCase
             ->assertOk()
             ->assertSee('Arma tu cotización personalizada')
             ->assertSee('$799.000 COP')
+            ->assertSee('Galería privada con QR')
+            ->assertSee('Presentación de fotos en tiempo real')
+            ->assertSee('sin instalar una app')
+            ->assertDontSee('Recordatorios automáticos')
             ->assertDontSee('Perfil de administración')
             ->assertDontSee('Todos los planes lado a lado')
             ->assertDontSee('<h2>Servicios adicionales</h2>', false);
@@ -40,8 +44,9 @@ class ExampleTest extends TestCase
 
         $this->assertSame(50, $invitados->unidad);
         $this->assertSame('90000.00', $invitados->precio_valor);
-        $this->assertSame(1000, $fotos->unidad);
-        $this->assertSame('450000.00', $fotos->precio_valor);
+        $this->assertSame(500, $fotos->unidad);
+        $this->assertSame('320000.00', $fotos->precio_valor);
+        $this->assertSame('80000.00', $fotos->precio_adicional);
     }
 
     public function test_el_administrador_ve_las_caracteristicas_al_registrar_una_venta(): void
@@ -52,6 +57,7 @@ class ExampleTest extends TestCase
             ->get(route('admin.ventas.create'))
             ->assertOk()
             ->assertSee('Perfil de administración')
+            ->assertSee('Presentación de fotos en tiempo real')
             ->assertSee('Características internas de');
     }
 }

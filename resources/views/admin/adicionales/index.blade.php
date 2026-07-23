@@ -27,7 +27,10 @@
                 @forelse ($servicios as $servicio)
                     <tr>
                         <td>{{ $servicio->orden }}</td>
-                        <td><strong>{{ $servicio->nombre }}</strong></td>
+                        <td>
+                            <strong>{{ $servicio->nombre }}</strong><br>
+                            <span class="muted" style="font-size:.8rem;">{{ $servicio->descripcion }}</span>
+                        </td>
                         <td style="font-weight:700;">{{ $servicio->precio }}</td>
                         <td>
                             {{ match($servicio->tipo_calculo) {

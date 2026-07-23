@@ -13,7 +13,7 @@ Proyecto Laravel 12 independiente, pensado para desplegarse en un **subdominio**
 - **5 planes**. El plan Invitación inicia en **$799.000 COP** para 100 personas y los precios de
   todos los planes se administran desde el panel.
 - **Cotización personalizada** desde el plan Invitación: permite calcular invitados, cantidad de
-  fotos y servicios elegidos, y preparar el resumen para enviarlo por WhatsApp.
+  fotos por paquetes y servicios elegidos, y preparar el resumen para enviarlo por WhatsApp.
 - Las características detalladas de los planes son información interna: se gestionan en el
   administrador y se consultan al registrar una venta, pero no se muestran en la landing.
 - **Panel de administración** en `/admin` (requiere login):
@@ -77,3 +77,22 @@ Casi todo se edita **sin tocar código** desde `/admin`:
 El plan Invitación incluye perfil de administración, revisión y actualización del estado de las
 invitaciones, música en la tarjeta, ubicación de ceremonia y recepción, código de vestimenta,
 opciones de regalo y capacidad para 100 personas. Este detalle solo se muestra dentro del panel.
+
+## Alcance del cotizador personalizado
+
+Las opciones públicas describen entregables y límites concretos:
+
+- Invitados adicionales en bloques de 50.
+- Galería privada con QR desde 500 fotos, carga desde el navegador sin instalar aplicaciones y
+  descarga consolidada.
+- Presentación de fotos en tiempo real como módulo separado; requiere galería, pantalla o
+  videobeam e internet estable en el lugar.
+- Moderación remota de fotos durante máximo cuatro horas.
+- Videos de invitados limitados a 100 clips de máximo 30 segundos.
+- Módulo de mesas limitado a 20 mesas.
+- Check-in con QR desde celular, libro de mensajes digital y recordatorios preparados para
+  WhatsApp.
+- Soporte remoto o presencial con duración y cobertura indicadas.
+
+El cotizador no promete envíos masivos automáticos de WhatsApp ni incluye cobros de API de
+terceros. Los servicios que dependen de fotos activan el paquete mínimo de galería.

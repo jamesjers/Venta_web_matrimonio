@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PlanVenta;
+use App\Models\ServicioAdicional;
 use App\Models\Servidor;
 use App\Models\Venta;
 use Carbon\Carbon;
@@ -112,10 +113,18 @@ class VentaController extends Controller
      */
     private function serviciosDisponibles(): array
     {
-        return PlanVenta::query()
+        $caracteristicas = PlanVenta::query()
             ->orderBy('orden')
             ->get()
-            ->flatMap(fn (PlanVenta $plan) => $plan->caracteristicas ?? [])
+            ->flatMap(fn (PlanVenta $plan) => $plan->caracteristicas ?? []);
+
+        $opcionesPersonalizadas = ServicioAdicional::query()
+            ->where('activo', true)
+            ->orderBy('orden')
+            ->pluck('nombre');
+
+        return $caracteristicas
+            ->merge($opcionesPersonalizadas)
             ->unique()
             ->values()
             ->all();

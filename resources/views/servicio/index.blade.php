@@ -11,9 +11,9 @@
     $servicios = [
         ['Ubicación', 'Ubicación e itinerario', 'Iglesia y salón con mapa, hora y detalles. Tus invitados llegan sin perderse.', '#1d6fa6'],
         ['Invitación', 'Invitación digital', 'Tarjeta elegante con música, historia y confirmación de asistencia en un clic.', '#0e5a5c'],
-        ['Recordatorios', 'Recordatorios automáticos', 'Mensajes por WhatsApp a quienes no confirman. Menos ausencias, más asistentes.', '#128c7e'],
-        ['Recuerdos', 'Recuerdos del gran día', 'Tus invitados suben fotos y videos y todo queda guardado en un solo lugar.', '#8a5cc0'],
-        ['En vivo', 'Fotos compartidas en el evento', 'Una vista en común donde las fotos que suben los invitados aparecen durante la fiesta.', '#c0873a'],
+        ['Recordatorios', 'Recordatorios por WhatsApp', 'Filtra pendientes y usa mensajes preparados para enviarlos por WhatsApp, sin prometer automatizaciones ni cobros de terceros.', '#128c7e'],
+        ['Recuerdos', 'Recuerdos del gran día', 'Activa una galería privada para fotos y, si lo necesitas, agrega videos cortos con límites definidos.', '#8a5cc0'],
+        ['En vivo', 'Fotos compartidas en el evento', 'Con el módulo en vivo, las fotos aprobadas aparecen en una pantalla durante la fiesta.', '#c0873a'],
         ['Ingreso', 'Control de ingreso con QR', 'Cada invitado con su código QR. Validas el acceso en segundos desde el celular.', '#b85c1a'],
         ['Mesas', 'Distribución de mesas', 'Organiza quién se sienta dónde arrastrando invitados a cada mesa.', '#3d5a80'],
         ['Todo', 'Invitados, gastos y checklist', 'Confirmados, presupuesto y tareas bajo control camino al gran día.', '#2f8f6f'],
@@ -223,14 +223,16 @@
         .cotiza-cantidades { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
         .cotiza-campo label { display: block; font-weight: 800; color: var(--azul-2); margin-bottom: 6px; }
         .cotiza-campo small { display: block; color: var(--suave); margin-top: 5px; }
-        .cotiza-campo input { width: 100%; border: 1px solid #dbe5ee; border-radius: 12px; padding: 12px 14px; font: inherit; color: var(--tinta); }
-        .cotiza-campo input:focus { outline: 3px solid rgba(22,161,155,.2); border-color: var(--petroleo-2); }
+        .cotiza-campo input, .cotiza-campo select { width: 100%; border: 1px solid #dbe5ee; border-radius: 12px; padding: 12px 14px; font: inherit; color: var(--tinta); background:#fff; }
+        .cotiza-campo input:focus, .cotiza-campo select:focus { outline: 3px solid rgba(22,161,155,.2); border-color: var(--petroleo-2); }
         .cotiza-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .cotiza-servicio { display: flex; gap: 11px; align-items: flex-start; border: 1px solid #e4ebf2; border-radius: 14px; padding: 14px; cursor: pointer; }
         .cotiza-servicio:has(input:checked) { border-color: var(--petroleo-2); background: #eef8f7; }
         .cotiza-servicio input { margin-top: 5px; accent-color: var(--petroleo); }
         .cotiza-servicio span { display: block; font-weight: 700; color: var(--azul-2); line-height: 1.3; }
-        .cotiza-servicio small { color: var(--petroleo); }
+        .cotiza-servicio small, .cotiza-servicio em { display:block; font-style:normal; }
+        .cotiza-servicio small { color: var(--suave); font-weight:500; margin-top:5px; line-height:1.4; }
+        .cotiza-servicio em { color: var(--petroleo); font-size:.82rem; margin-top:6px; }
         .cotiza-total .desde { opacity: .75; font-size: .78rem; text-transform: uppercase; letter-spacing: 1.4px; }
         .cotiza-total .valor { color: var(--oro); font-size: clamp(2rem,4vw,2.7rem); font-weight: 800; line-height: 1.1; margin: 4px 0 18px; }
         .cotiza-resumen { list-style: none; padding: 16px 0; margin: 0 0 20px; border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); display: grid; gap: 8px; font-size: .9rem; }
@@ -382,11 +384,11 @@
                 <div class="ft-text">
                     <div class="kicker">En vivo durante el evento</div>
                     <h3>Fotos compartidas en tiempo real</h3>
-                    <p>Los invitados suben sus fotos y videos desde el celular y aparecen en una vista compartida que pueden proyectar durante la fiesta. Todos los recuerdos quedan guardados en un solo lugar.</p>
+                    <p>Los invitados escanean un QR y suben fotos desde el navegador, sin instalar aplicaciones. La galería es privada, se puede descargar y, si se contrata la presentación en vivo, las fotos aprobadas aparecen en la pantalla del evento.</p>
                     <ul class="ft-list">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Vista de fotos compartida en vivo</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Presentación automática para proyectar</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Descarga de todos los recuerdos</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Carga por QR, sin app ni cuenta para el invitado</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Presentación en vivo opcional y moderable</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Requiere televisor o videobeam e internet estable</li>
                     </ul>
                 </div>
             </div>
@@ -484,12 +486,20 @@
                             <small>El plan base incluye 100 personas.</small>
                         </div>
                         <div class="cotiza-campo">
-                            <label for="cotiza-fotos">Cantidad de fotos</label>
-                            <input id="cotiza-fotos" type="number" min="0" max="10000"
-                                step="{{ max(1, (int) ($opcionFotos->unidad ?? 1000)) }}" value="0"
+                            <label for="cotiza-fotos">Galería privada con QR · cantidad de fotos</label>
+                            @php $unidadFotos = max(1, (int) ($opcionFotos->unidad ?? 500)); @endphp
+                            <select id="cotiza-fotos"
                                 data-precio="{{ (float) ($opcionFotos->precio_valor ?? 0) }}"
-                                data-unidad="{{ max(1, (int) ($opcionFotos->unidad ?? 1000)) }}">
-                            <small>Selecciona 0 si no necesitas galería compartida.</small>
+                                data-precio-adicional="{{ (float) ($opcionFotos->precio_adicional ?? 0) }}"
+                                data-unidad="{{ $unidadFotos }}">
+                                <option value="0">Sin galería de invitados</option>
+                                <option value="{{ $unidadFotos }}">Hasta {{ number_format($unidadFotos, 0, ',', '.') }} fotos</option>
+                                <option value="{{ $unidadFotos * 2 }}">Hasta {{ number_format($unidadFotos * 2, 0, ',', '.') }} fotos</option>
+                                <option value="{{ $unidadFotos * 4 }}">Hasta {{ number_format($unidadFotos * 4, 0, ',', '.') }} fotos</option>
+                                <option value="{{ $unidadFotos * 6 }}">Hasta {{ number_format($unidadFotos * 6, 0, ',', '.') }} fotos</option>
+                                <option value="{{ $unidadFotos * 10 }}">Hasta {{ number_format($unidadFotos * 10, 0, ',', '.') }} fotos</option>
+                            </select>
+                            <small>{{ $opcionFotos->descripcion ?? 'Galería privada con carga por QR y descarga consolidada.' }}</small>
                         </div>
                     </div>
 
@@ -499,8 +509,14 @@
                         <div class="cotiza-lista">
                             @foreach ($opcionesSeleccion as $servicio)
                                 <label class="cotiza-servicio">
-                                    <input type="checkbox" class="cotiza-check" value="{{ $servicio->nombre }}" data-precio="{{ (float) $servicio->precio_valor }}">
-                                    <span>{{ $servicio->nombre }}<small>{{ $servicio->precio }}</small></span>
+                                    <input type="checkbox" class="cotiza-check" value="{{ $servicio->nombre }}"
+                                        data-precio="{{ (float) $servicio->precio_valor }}"
+                                        data-requiere-fotos="{{ $servicio->requiere_fotos ? '1' : '0' }}">
+                                    <span>
+                                        {{ $servicio->nombre }}
+                                        <small>{{ $servicio->descripcion }}</small>
+                                        <em>{{ $servicio->precio }}</em>
+                                    </span>
                                 </label>
                             @endforeach
                         </div>
@@ -568,18 +584,16 @@
             var valor = document.getElementById('cotiza-valor');
             var resumen = document.getElementById('cotiza-resumen');
             var boton = document.getElementById('cotiza-whatsapp');
-            var formato = new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                maximumFractionDigits: 0
-            });
+            function formatoCOP(precio) {
+                return '$' + Number(precio).toLocaleString('es-CO') + ' COP';
+            }
 
             function itemResumen(nombre, precio) {
                 var item = document.createElement('li');
                 var etiqueta = document.createElement('span');
                 var monto = document.createElement('strong');
                 etiqueta.textContent = nombre;
-                monto.textContent = formato.format(precio);
+                monto.textContent = formatoCOP(precio);
                 item.append(etiqueta, monto);
                 resumen.appendChild(item);
             }
@@ -593,7 +607,9 @@
                 var cantidadFotos = Math.max(0, Number(fotos.value || 0));
                 var unidadFotos = Number(fotos.dataset.unidad || 1000);
                 var bloquesFotos = Math.ceil(cantidadFotos / unidadFotos);
-                var costoFotos = bloquesFotos * Number(fotos.dataset.precio || 0);
+                var costoFotos = bloquesFotos > 0
+                    ? Number(fotos.dataset.precio || 0) + ((bloquesFotos - 1) * Number(fotos.dataset.precioAdicional || 0))
+                    : 0;
 
                 var seleccionados = checks.filter(function (check) { return check.checked; });
                 var costoServicios = seleccionados.reduce(function (suma, check) {
@@ -601,11 +617,11 @@
                 }, 0);
                 var total = base + costoInvitados + costoFotos + costoServicios;
 
-                valor.textContent = formato.format(total);
+                valor.textContent = formatoCOP(total);
                 resumen.innerHTML = '';
                 itemResumen('Plan Invitación · 100 personas', base);
                 if (costoInvitados > 0) itemResumen((cantidadInvitados - 100) + ' invitados adicionales', costoInvitados);
-                if (costoFotos > 0) itemResumen(cantidadFotos.toLocaleString('es-CO') + ' fotos', costoFotos);
+                if (costoFotos > 0) itemResumen('Galería QR · hasta ' + cantidadFotos.toLocaleString('es-CO') + ' fotos', costoFotos);
                 seleccionados.forEach(function (check) {
                     itemResumen(check.value, Number(check.dataset.precio || 0));
                 });
@@ -614,17 +630,33 @@
                     var lineas = [
                         'Hola, quiero solicitar esta cotización personalizada:',
                         '- Plan Invitación para ' + cantidadInvitados + ' personas',
-                        '- Fotos: ' + cantidadFotos.toLocaleString('es-CO')
+                        cantidadFotos > 0
+                            ? '- Galería QR: hasta ' + cantidadFotos.toLocaleString('es-CO') + ' fotos'
+                            : '- Galería QR: no incluida'
                     ];
                     seleccionados.forEach(function (check) { lineas.push('- ' + check.value); });
-                    lineas.push('Total estimado: ' + formato.format(total));
+                    lineas.push('Total estimado: ' + formatoCOP(total));
                     boton.href = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(lineas.join('\n'));
                 }
             }
 
             invitados.addEventListener('input', calcular);
             fotos.addEventListener('input', calcular);
-            checks.forEach(function (check) { check.addEventListener('change', calcular); });
+            checks.forEach(function (check) {
+                check.addEventListener('change', function () {
+                    if (check.checked && check.dataset.requiereFotos === '1' && Number(fotos.value) === 0) {
+                        fotos.value = fotos.options[1].value;
+                    }
+                    calcular();
+                });
+            });
+            fotos.addEventListener('change', function () {
+                if (Number(fotos.value) === 0) {
+                    checks.filter(function (check) { return check.dataset.requiereFotos === '1'; })
+                        .forEach(function (check) { check.checked = false; });
+                }
+                calcular();
+            });
             calcular();
         })();
 
