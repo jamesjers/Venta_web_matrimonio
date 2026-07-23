@@ -1,0 +1,27 @@
+services:
+  ventas_web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ventas_bodas_web
+    ports:
+      - "8082:80"
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: ventas
+      POSTGRES_USER: ventas
+      POSTGRES_PASSWORD: ventas123
+      POSTGRES_VERSION: "16"
+    volumes:
+      - .:/var/www/html
+      - ventas_vendor:/var/www/html/vendor
+      - ventas_storage:/var/www/html/storage
+      - ventas_cache:/var/www/html/bootstrap/cache
+      - ventas_pgdata:/var/lib/postgresql/16/main
+    restart: unless-stopped
+
+volumes:
+  ventas_vendor:
+  ventas_storage:
+  ventas_cache:
+  ventas_pgdata:
