@@ -194,26 +194,48 @@
         @media (max-width: 860px) { .pasos { grid-template-columns: 1fr 1fr; gap: 28px; } }
         @media (max-width: 480px) { .pasos { grid-template-columns: 1fr; } }
 
-        /* Planes (columnas, sin cajas con borde) */
+        /* Planes: fila de tarjetas desplazables (soporta muchos planes) */
         .planes { background: var(--lavado); }
-        .planes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; max-width: 760px; margin: 0 auto; border-radius: 26px; overflow: hidden; box-shadow: 0 30px 70px rgba(14,40,72,.14); background: #fff; }
-        .plan { padding: 40px 32px; display: flex; flex-direction: column; border-right: 1px solid #eef2f7; }
-        .plan:last-child { border-right: none; }
-        .plan.top { background: linear-gradient(180deg,#0a1c39,#0e5a5c); color: #fff; }
-        .plan .badge { align-self: flex-start; background: linear-gradient(120deg,var(--oro),var(--oro-2)); color: var(--azul-2); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
-        .plan h3 { margin: 0; font-size: 1.4rem; }
-        .plan .ideal { font-size: .88rem; opacity: .75; margin: 3px 0 18px; }
-        .plan .price { font-size: 2.3rem; font-weight: 800; line-height: 1; }
+        .planes-scroll { display: flex; gap: 22px; overflow-x: auto; padding: 6px 4px 22px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+        .plan { scroll-snap-align: start; flex: 0 0 300px; background: #fff; border: 1px solid var(--borde, #e4ebf2); border-radius: 22px; padding: 30px 26px; display: flex; flex-direction: column; box-shadow: 0 16px 40px rgba(14,40,72,.08); }
+        .plan.top { background: linear-gradient(180deg,#0a1c39,#0e5a5c); color: #fff; border-color: transparent; box-shadow: 0 26px 56px rgba(14,90,92,.3); }
+        .plan .badge { align-self: flex-start; background: linear-gradient(120deg,var(--oro),var(--oro-2)); color: var(--azul-2); font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
+        .plan h3 { margin: 0; font-size: 1.3rem; }
+        .plan .ideal { font-size: .86rem; opacity: .78; margin: 3px 0 12px; }
+        .plan .desc { font-size: .88rem; opacity: .8; margin: 0 0 16px; line-height: 1.5; }
+        .plan .desde { font-size: .72rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; opacity: .7; }
+        .plan .price { font-size: 1.9rem; font-weight: 800; line-height: 1.1; }
         .plan.top .price { color: var(--oro); }
         .plan:not(.top) .price { color: var(--petroleo); }
-        .plan ul { list-style: none; padding: 0; margin: 22px 0 26px; display: grid; gap: 12px; }
-        .plan li { display: flex; gap: 10px; align-items: flex-start; font-size: .94rem; }
-        .plan li svg { width: 19px; height: 19px; flex-shrink: 0; margin-top: 2px; color: var(--petroleo-2); }
+        .plan ul { list-style: none; padding: 0; margin: 18px 0 20px; display: grid; gap: 10px; }
+        .plan li { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; }
+        .plan li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--petroleo-2); }
         .plan.top li svg { color: var(--oro); }
-        .plan .btn { margin-top: auto; justify-content: center; width: 100%; padding: 14px; }
+        .plan .infra { font-size: .78rem; opacity: .7; line-height: 1.45; border-top: 1px solid rgba(120,140,170,.25); padding-top: 12px; margin-bottom: 18px; }
+        .plan .btn { margin-top: auto; justify-content: center; width: 100%; padding: 13px; }
         .plan:not(.top) .btn-plan { background: var(--azul-2); color: #fff; }
         .plan.top .btn-plan { background: linear-gradient(120deg,var(--oro),var(--oro-2)); color: var(--azul-2); }
-        @media (max-width: 860px) { .planes-grid { grid-template-columns: 1fr; } .plan { border-right: none; border-bottom: 1px solid #eef2f7; } }
+        .planes-hint { text-align: center; color: var(--suave); font-size: .85rem; margin-top: 6px; }
+
+        /* Tabla comparativa */
+        .tabla-wrap { overflow-x: auto; border-radius: 18px; border: 1px solid var(--borde,#e4ebf2); box-shadow: 0 16px 40px rgba(14,40,72,.08); }
+        table.comparativa { width: 100%; border-collapse: collapse; background: #fff; min-width: 720px; }
+        table.comparativa th, table.comparativa td { padding: 14px 16px; text-align: center; border-bottom: 1px solid #eef2f7; font-size: .92rem; }
+        table.comparativa thead th { background: var(--azul-2); color: #fff; font-weight: 700; }
+        table.comparativa thead th:first-child { text-align: left; border-top-left-radius: 18px; }
+        table.comparativa tbody th { text-align: left; font-weight: 600; color: var(--azul-2); background: #f7fafc; }
+        table.comparativa tbody tr:last-child td, table.comparativa tbody tr:last-child th { border-bottom: none; }
+        table.comparativa .si { color: var(--petroleo); font-weight: 800; }
+        table.comparativa .no { color: #c2ccd8; }
+        table.comparativa .precio-row td, table.comparativa .precio-row th { font-weight: 800; color: var(--azul-2); background: #eef6f5; }
+
+        /* Servicios adicionales */
+        .adic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; max-width: 900px; margin: 0 auto; }
+        .adic { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #d9e2ec; }
+        .adic .n { color: var(--tinta); }
+        .adic .p { font-weight: 800; color: var(--petroleo); white-space: nowrap; }
+        .adic-nota { text-align: center; color: var(--suave); font-size: .86rem; max-width: 720px; margin: 26px auto 0; }
+        @media (max-width: 680px) { .adic-grid { grid-template-columns: 1fr; } }
 
         /* Testimonio */
         .testi { text-align: center; }
@@ -405,30 +427,116 @@
     <section id="planes" class="planes">
         <div class="wrap">
             <div class="head reveal">
-                <div class="kicker">Planes</div>
-                <h2>Elijan el punto de partida</h2>
-                <p>Un pago, sin sorpresas. Todo se puede ampliar con los servicios que necesiten.</p>
+                <div class="kicker">Planes para tu matrimonio</div>
+                <h2>Elige el plan según lo que necesitas</h2>
+                <p>Del básico al premium: crece cuando quieras. Los precios pueden variar según invitados, personalización, almacenamiento y servicios adicionales.</p>
             </div>
-            <div class="planes-grid reveal">
+            <div class="planes-scroll reveal">
                 @foreach ($planes as $plan)
                     @php $car = is_array($plan->caracteristicas) ? $plan->caracteristicas : []; @endphp
                     <div class="plan {{ $plan->destacado ? 'top' : '' }}">
                         @if ($plan->destacado)<span class="badge">Más elegido</span>@endif
                         <h3>{{ $plan->nombre }}</h3>
                         <div class="ideal">{{ $plan->subtitulo }}</div>
+                        <div class="desde">Desde</div>
                         <div class="price">{{ $plan->precio }}</div>
+                        @if (!empty($plan->descripcion))<p class="desc">{{ $plan->descripcion }}</p>@endif
                         <ul>
                             @foreach ($car as $item)
                                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>{{ $item }}</li>
                             @endforeach
                         </ul>
+                        @if (!empty($plan->infraestructura))<div class="infra">🖥️ {{ $plan->infraestructura }}</div>@endif
                         @php $planMsg = rawurlencode('Hola, me interesa el plan '.$plan->nombre.' para mi matrimonio.'); @endphp
                         <a class="btn btn-plan" href="{{ $wa !== '' ? "https://wa.me/{$wa}?text={$planMsg}" : '#contacto' }}" @if($wa !== '') target="_blank" rel="noopener" @endif>Quiero este plan</a>
                     </div>
                 @endforeach
             </div>
+            <p class="planes-hint">← Desliza para ver todos los planes →</p>
         </div>
     </section>
+
+    <!-- TABLA COMPARATIVA -->
+    @php
+        // Matriz de comparacion (por posicion de plan). Se muestra si hay planes.
+        $filasComparativa = [
+            ['Invitación personalizada', ['Sí', 'Sí', 'Sí', 'Sí', 'Exclusiva']],
+            ['Confirmación de asistencia', ['Sí', 'Sí', 'Sí', 'Sí', 'Sí']],
+            ['Gestión de cupos', ['Básica', 'Sí', 'Sí', 'Sí', 'Sí']],
+            ['Panel administrativo', ['No', 'Sí', 'Sí', 'Sí', 'Sí']],
+            ['Organización de mesas', ['No', 'No', 'Sí', 'Sí', 'Sí']],
+            ['Carga de fotografías', ['No', 'No', 'No', 'Sí', 'Sí']],
+            ['Presentación en vivo', ['No', 'No', 'No', 'Sí', 'Sí']],
+            ['Soporte durante el evento', ['No', 'No', 'No', 'Remoto', 'Presencial']],
+            ['Invitados incluidos', ['100', '200', '250', '250', '400']],
+        ];
+        $mostrarComparativa = $planes->count() === count($filasComparativa[0][1]);
+    @endphp
+    @if ($mostrarComparativa)
+    <section>
+        <div class="wrap">
+            <div class="head reveal">
+                <div class="kicker">Comparación</div>
+                <h2>Todos los planes lado a lado</h2>
+                <p>Compara lo que incluye cada plan y elige con confianza.</p>
+            </div>
+            <div class="tabla-wrap reveal">
+                <table class="comparativa">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            @foreach ($planes as $plan)
+                                <th>{{ $plan->nombre }}</th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($filasComparativa as [$etiqueta, $valores])
+                            <tr>
+                                <th>{{ $etiqueta }}</th>
+                                @foreach ($valores as $v)
+                                    <td>
+                                        @if ($v === 'Sí')<span class="si">Sí</span>
+                                        @elseif ($v === 'No')<span class="no">—</span>
+                                        @else {{ $v }}@endif
+                                    </td>
+                                @endforeach
+                            </tr>
+                        @endforeach
+                        <tr class="precio-row">
+                            <th>Precio desde</th>
+                            @foreach ($planes as $plan)
+                                <td>{{ $plan->precio }}</td>
+                            @endforeach
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    @endif
+
+    <!-- SERVICIOS ADICIONALES -->
+    @if ($adicionales->isNotEmpty())
+    <section class="feature-band">
+        <div class="wrap">
+            <div class="head reveal">
+                <div class="kicker">A tu medida</div>
+                <h2>Servicios adicionales</h2>
+                <p>Complementa cualquier plan con lo que necesites. Precios de referencia.</p>
+            </div>
+            <div class="adic-grid reveal">
+                @foreach ($adicionales as $servicio)
+                    <div class="adic">
+                        <span class="n">{{ $servicio->nombre }}</span>
+                        <span class="p">{{ $servicio->precio }}</span>
+                    </div>
+                @endforeach
+            </div>
+            <p class="adic-nota">Los valores pueden variar según el número de invitados, nivel de personalización, almacenamiento requerido, ubicación del evento y servicios adicionales contratados.</p>
+        </div>
+    </section>
+    @endif
 
     <!-- TESTIMONIO -->
     <section class="testi">

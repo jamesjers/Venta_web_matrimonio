@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ConfiguracionVentaController;
 use App\Http\Controllers\Admin\PlanVentaController;
+use App\Http\Controllers\Admin\ServicioAdicionalController;
 use App\Http\Controllers\Admin\ServidorController;
 use App\Http\Controllers\Admin\VentaController;
 use App\Http\Controllers\Admin\VentasPanelController;
@@ -31,6 +32,13 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/planes/{plan}/editar', [PlanVentaController::class, 'edit'])->name('planes.edit');
     Route::put('/planes/{plan}', [PlanVentaController::class, 'update'])->name('planes.update');
     Route::delete('/planes/{plan}', [PlanVentaController::class, 'destroy'])->name('planes.destroy');
+
+    Route::get('/adicionales', [ServicioAdicionalController::class, 'index'])->name('adicionales.index');
+    Route::get('/adicionales/nuevo', [ServicioAdicionalController::class, 'create'])->name('adicionales.create');
+    Route::post('/adicionales', [ServicioAdicionalController::class, 'store'])->name('adicionales.store');
+    Route::get('/adicionales/{adicional}/editar', [ServicioAdicionalController::class, 'edit'])->name('adicionales.edit');
+    Route::put('/adicionales/{adicional}', [ServicioAdicionalController::class, 'update'])->name('adicionales.update');
+    Route::delete('/adicionales/{adicional}', [ServicioAdicionalController::class, 'destroy'])->name('adicionales.destroy');
 
     Route::get('/servidores', [ServidorController::class, 'index'])->name('servidores.index');
     Route::get('/servidores/nuevo', [ServidorController::class, 'create'])->name('servidores.create');

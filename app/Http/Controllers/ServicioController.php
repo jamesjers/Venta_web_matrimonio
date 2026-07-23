@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ConfiguracionVenta;
 use App\Models\PlanVenta;
+use App\Models\ServicioAdicional;
 use Illuminate\View\View;
 
 class ServicioController extends Controller
@@ -17,6 +18,7 @@ class ServicioController extends Controller
         return view('servicio.index', [
             'config' => ConfiguracionVenta::actual(),
             'planes' => PlanVenta::activosOrdenados(),
+            'adicionales' => ServicioAdicional::activosOrdenados(),
         ]);
     }
 }

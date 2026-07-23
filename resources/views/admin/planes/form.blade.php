@@ -44,8 +44,18 @@
             </div>
 
             <div class="field">
+                <label>Descripción corta</label>
+                <input type="text" name="descripcion" value="{{ old('descripcion', $plan->descripcion) }}" placeholder="Ej: La experiencia completa para organizar el evento.">
+            </div>
+
+            <div class="field">
                 <label>Características (una por línea)</label>
                 <textarea name="caracteristicas" placeholder="Invitación digital personalizada&#10;Recordatorios por WhatsApp&#10;Dominio y hosting por 1 año">{{ $caracteristicasTexto }}</textarea>
+            </div>
+
+            <div class="field">
+                <label>Infraestructura (texto que aparece al pie del plan)</label>
+                <input type="text" name="infraestructura" value="{{ old('infraestructura', $plan->infraestructura) }}" placeholder="Ej: Servidor de 1 vCPU, 1 GB de RAM y 10 GB de almacenamiento.">
             </div>
 
             <div class="grid-2">

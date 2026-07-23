@@ -61,9 +61,11 @@ class PlanVentaController extends Controller
         $data = $request->validate([
             'nombre' => ['required', 'string', 'max:120'],
             'subtitulo' => ['nullable', 'string', 'max:160'],
+            'descripcion' => ['nullable', 'string', 'max:500'],
             'precio' => ['required', 'string', 'max:60'],
             'destacado' => ['nullable', 'boolean'],
             'caracteristicas' => ['nullable', 'string'],
+            'infraestructura' => ['nullable', 'string', 'max:400'],
             'orden' => ['nullable', 'integer', 'min:0'],
             'activo' => ['nullable', 'boolean'],
         ]);
