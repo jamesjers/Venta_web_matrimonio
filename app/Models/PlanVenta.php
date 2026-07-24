@@ -62,12 +62,33 @@ class PlanVenta extends Model
     {
         return collect([
             new self([
+                'nombre' => 'Tarjeta de Invitación',
+                'subtitulo' => 'Tu invitación digital con panel propio',
+                'descripcion' => 'La tarjeta de invitación con dominio propio y un panel de control exclusivo para revisar el estado de las confirmaciones de esa invitación.',
+                'precio' => '$349.000 COP',
+                'destacado' => false,
+                'caracteristicas' => [
+                    'Tarjeta de invitación digital a la medida del evento',
+                    'Dominio propio con el nombre del evento',
+                    'Panel de control exclusivo de la tarjeta',
+                    'Revisión del estado de las invitaciones (confirmaciones)',
+                    'Confirmación de asistencia en un clic',
+                    'Música, historia y detalles en la tarjeta',
+                    'Ubicación con mapa e itinerario',
+                    'Código de vestimenta y opciones de regalo',
+                    'Dominio, alojamiento y certificado SSL incluidos',
+                    'Enfocado solo en la tarjeta: sin gestión avanzada de invitados ni mesas',
+                ],
+                'infraestructura' => 'Servidor compartido de 1 vCPU, 1 GB de RAM y 5 GB de almacenamiento.',
+            ]),
+            new self([
                 'nombre' => 'Invitación',
                 'subtitulo' => 'La invitación digital esencial',
                 'descripcion' => 'Una invitación digital elegante con toda la información del evento en un solo lugar.',
                 'precio' => '$749.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
+                    'Todo lo de la Tarjeta de Invitación',
                     'Perfil de administración',
                     'Revisión del estado de las invitaciones',
                     'Actualización de invitaciones',

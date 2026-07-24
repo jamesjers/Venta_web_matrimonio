@@ -1,17 +1,24 @@
-# Ventas Bodas Web
+# Invita · Ventas Eventos Web
 
-Página comercial (landing) para **ofrecer y vender el servicio de páginas web para matrimonios**,
-con un panel de administración para gestionar precios, ventas y servidores.
+Página comercial (landing) para **ofrecer y vender invitaciones digitales y páginas web para
+eventos** —matrimonios, fiestas de 15 años, bautizos, grados, cumpleaños y más—, con un panel de
+administración para gestionar precios, ventas y servidores.
 
 Proyecto Laravel 12 independiente, pensado para desplegarse en un **subdominio** propio.
 
 ## Qué incluye
 
-- **Landing pública** en `/` — diseño moderno, con los servicios (ubicación, invitación,
-  recordatorios, recuerdos, fotos compartidas en vivo, ingreso con QR, mesas), personalización a
-  medida y la promesa de dominio + hosting por 1 año con los nombres de los novios.
-- **5 planes**. El plan Invitación inicia en **$749.000 COP** para 100 personas y los precios de
-  todos los planes se administran desde el panel.
+- **Landing pública** en `/` — diseño moderno con un **selector de tipo de evento** en la parte
+  superior (Matrimonios · 15 años · Otros eventos) que cambia la portada (textos, mockup y acento
+  de color) de forma dinámica. Incluye los servicios (ubicación, invitación, estado de
+  invitaciones, recuerdos, fotos compartidas en vivo, ingreso con QR, mesas), personalización a
+  medida y la promesa de dominio + hosting por 1 año con el nombre del evento.
+- **Producto de entrada: Tarjeta de Invitación con panel por $349.000 COP** — solo la tarjeta de
+  invitación con dominio propio y un panel de control exclusivo de esa tarjeta para revisar el
+  estado de las confirmaciones. Se muestra en una banda destacada de la landing y como primer plan.
+- **6 planes**. Van desde la Tarjeta de Invitación (**$349.000 COP**) y el plan Invitación
+  (**$749.000 COP** para 100 personas) hasta Premium; los precios de todos los planes se
+  administran desde el panel.
 - **Cotización personalizada** desde el plan Invitación: permite calcular invitados, cantidad de
   fotos por paquetes y servicios elegidos, y preparar el resumen para enviarlo por WhatsApp.
 - Las características detalladas de los planes son información interna: se gestionan en el
@@ -68,15 +75,24 @@ Casi todo se edita **sin tocar código** desde `/admin`:
 
 ## Precios configurados
 
+- Tarjeta de Invitación: $349.000 COP.
 - Invitación: $749.000 COP.
 - Gestión de Invitados: $1.149.000 COP.
 - Organización y Mesas: $1.599.000 COP.
 - Experiencia y Recuerdos: $2.299.000 COP.
 - Premium: $3.499.000 COP.
 
-El plan Invitación incluye perfil de administración, revisión y actualización del estado de las
-invitaciones, música en la tarjeta, ubicación de ceremonia y recepción, código de vestimenta,
-opciones de regalo y capacidad para 100 personas. Este detalle solo se muestra dentro del panel.
+La **Tarjeta de Invitación** ($349.000) es el producto de entrada: incluye la tarjeta digital, el
+dominio propio con el nombre del evento y un panel de control exclusivo de esa tarjeta para revisar
+el estado de las confirmaciones. No incluye gestión avanzada de invitados ni módulo de mesas.
+
+El plan Invitación incluye todo lo de la Tarjeta más perfil de administración, actualización del
+estado de las invitaciones, música en la tarjeta, ubicación de ceremonia y recepción, código de
+vestimenta, opciones de regalo y capacidad para 100 personas. Este detalle solo se muestra dentro
+del panel.
+
+Todo el catálogo se ofrece para matrimonios, fiestas de 15 años y otros eventos; el selector
+superior de la landing adapta la portada a cada tipo de evento.
 
 ## Alcance del cotizador personalizado
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso · Administración</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo-matrimonio.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo-eventos.svg') }}">
     <style>
         * { box-sizing: border-box; }
         body {
@@ -38,7 +38,7 @@
 <body>
     <div class="card">
         <div class="top">
-            <img src="{{ asset('assets/logo-matrimonio.svg') }}" alt="">
+            <img src="{{ asset('assets/logo-eventos.svg') }}" alt="">
             <div>
                 <div class="t">Administración</div>
                 <div class="s">Panel de ventas del negocio</div>

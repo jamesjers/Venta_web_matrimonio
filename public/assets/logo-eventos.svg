@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Invitaciones y páginas web para eventos">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1b3a"/>
+      <stop offset="55%" stop-color="#11476a"/>
+      <stop offset="100%" stop-color="#0e5a5c"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6d79f"/>
+      <stop offset="100%" stop-color="#d8ae63"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef4fb"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" rx="52" fill="url(#bg)"/>
+
+  <!-- Tarjeta / invitación -->
+  <rect x="66" y="78" width="124" height="104" rx="14" fill="url(#card)"/>
+  <rect x="66" y="78" width="124" height="104" rx="14" fill="none" stroke="url(#gold)" stroke-width="4"/>
+
+  <!-- Solapa del sobre -->
+  <path d="M66 92 L128 138 L190 92" fill="none" stroke="#11476a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+
+  <!-- Líneas de texto -->
+  <rect x="86" y="150" width="84" height="7" rx="3.5" fill="#c9d6e6"/>
+  <rect x="100" y="164" width="56" height="7" rx="3.5" fill="#dbe4f0"/>
+
+  <!-- Destello / estrella -->
+  <path d="M128 58l9 15 17 3-12 12 3 17-17-9-17 9 3-17-12-12 17-3z" fill="url(#gold)"/>
+</svg>

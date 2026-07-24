@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Administración · @yield('title', 'Ventas')</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo-matrimonio.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logo-eventos.svg') }}">
     <style>
         :root {
             --azul: #0a1c39;
@@ -115,10 +115,10 @@
 <body>
     <header class="admin-top">
         <div class="admin-brand">
-            <img src="{{ asset('assets/logo-matrimonio.svg') }}" alt="">
+            <img src="{{ asset('assets/logo-eventos.svg') }}" alt="">
             <div>
                 Administración
-                <small>Negocio de páginas web para bodas</small>
+                <small>Invitaciones y páginas web para eventos</small>
             </div>
         </div>
         <nav class="admin-nav">

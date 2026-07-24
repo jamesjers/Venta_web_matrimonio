@@ -36,8 +36,8 @@ class ConfiguracionVenta extends Model
         }
 
         return new self([
-            'marca' => 'MatrimonioWeb',
-            'lema' => 'Páginas web para matrimonios, hechas a la medida de su historia',
+            'marca' => 'Invita',
+            'lema' => 'Invitaciones digitales y páginas web para tus eventos',
             'whatsapp' => '51987654321',
             'email' => 'contacto@matrimonioweb.com',
             'hero_titulo' => 'La web de su boda, de la invitación al último recuerdo',
