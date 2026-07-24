@@ -387,8 +387,8 @@
                     <p>Los invitados escanean un QR y suben fotos desde el navegador, sin instalar aplicaciones. La galería es privada, se puede descargar y, si se contrata la presentación en vivo, las fotos aprobadas aparecen en la pantalla del evento.</p>
                     <ul class="ft-list">
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Carga por QR, sin app ni cuenta para el invitado</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Presentación en vivo opcional y moderable</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Requiere televisor o videobeam e internet estable</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> Enlace de presentación en pantalla completa</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg> El lugar aporta pantalla, computador e internet estable</li>
                     </ul>
                 </div>
             </div>

@@ -35,7 +35,7 @@
             <div class="grid-2">
                 <div class="field">
                     <label>Precio (texto libre)</label>
-                    <input type="text" name="precio" value="{{ old('precio', $plan->precio) }}" placeholder="Ej: $799.000 COP o A medida" required>
+                    <input type="text" name="precio" value="{{ old('precio', $plan->precio) }}" placeholder="Ej: $749.000 COP o A medida" required>
                 </div>
                 <div class="field">
                     <label>Orden</label>

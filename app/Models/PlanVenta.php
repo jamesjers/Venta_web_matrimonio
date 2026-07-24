@@ -65,7 +65,7 @@ class PlanVenta extends Model
                 'nombre' => 'Invitación',
                 'subtitulo' => 'La invitación digital esencial',
                 'descripcion' => 'Una invitación digital elegante con toda la información del evento en un solo lugar.',
-                'precio' => '$799.000 COP',
+                'precio' => '$749.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Perfil de administración',
@@ -85,7 +85,7 @@ class PlanVenta extends Model
                 'nombre' => 'Gestión de Invitados',
                 'subtitulo' => 'Confirmaciones y cupos en un panel',
                 'descripcion' => 'Ideal para administrar confirmaciones, cupos y acompañantes desde un solo panel.',
-                'precio' => '$1.240.000 COP',
+                'precio' => '$1.149.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Todo lo del Plan Invitación',
@@ -102,7 +102,7 @@ class PlanVenta extends Model
                 'nombre' => 'Organización y Mesas',
                 'subtitulo' => 'Ubica a tus invitados en la recepción',
                 'descripcion' => 'Organiza a tus invitados y facilita su ubicación durante la recepción.',
-                'precio' => '$1.740.000 COP',
+                'precio' => '$1.599.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Todo lo del Plan Gestión de Invitados',
@@ -118,7 +118,7 @@ class PlanVenta extends Model
                 'nombre' => 'Experiencia y Recuerdos',
                 'subtitulo' => 'Organiza y comparte los recuerdos en vivo',
                 'descripcion' => 'La experiencia completa para organizar el evento y compartir los recuerdos en tiempo real.',
-                'precio' => '$2.540.000 COP',
+                'precio' => '$2.299.000 COP',
                 'destacado' => true,
                 'caracteristicas' => [
                     'Todo lo del Plan Organización y Mesas',
@@ -135,7 +135,7 @@ class PlanVenta extends Model
                 'nombre' => 'Premium',
                 'subtitulo' => 'La experiencia exclusiva con acompañamiento',
                 'descripcion' => 'Una experiencia exclusiva con mayor capacidad, personalización y acompañamiento durante el evento.',
-                'precio' => '$3.840.000 COP',
+                'precio' => '$3.499.000 COP',
                 'destacado' => false,
                 'caracteristicas' => [
                     'Todo lo del Plan Experiencia y Recuerdos',

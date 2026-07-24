@@ -10,7 +10,7 @@ Proyecto Laravel 12 independiente, pensado para desplegarse en un **subdominio**
 - **Landing pública** en `/` — diseño moderno, con los servicios (ubicación, invitación,
   recordatorios, recuerdos, fotos compartidas en vivo, ingreso con QR, mesas), personalización a
   medida y la promesa de dominio + hosting por 1 año con los nombres de los novios.
-- **5 planes**. El plan Invitación inicia en **$799.000 COP** para 100 personas y los precios de
+- **5 planes**. El plan Invitación inicia en **$749.000 COP** para 100 personas y los precios de
   todos los planes se administran desde el panel.
 - **Cotización personalizada** desde el plan Invitación: permite calcular invitados, cantidad de
   fotos por paquetes y servicios elegidos, y preparar el resumen para enviarlo por WhatsApp.
@@ -68,11 +68,11 @@ Casi todo se edita **sin tocar código** desde `/admin`:
 
 ## Precios configurados
 
-- Invitación: $799.000 COP.
-- Gestión de Invitados: $1.240.000 COP.
-- Organización y Mesas: $1.740.000 COP.
-- Experiencia y Recuerdos: $2.540.000 COP.
-- Premium: $3.840.000 COP.
+- Invitación: $749.000 COP.
+- Gestión de Invitados: $1.149.000 COP.
+- Organización y Mesas: $1.599.000 COP.
+- Experiencia y Recuerdos: $2.299.000 COP.
+- Premium: $3.499.000 COP.
 
 El plan Invitación incluye perfil de administración, revisión y actualización del estado de las
 invitaciones, música en la tarjeta, ubicación de ceremonia y recepción, código de vestimenta,
@@ -82,11 +82,12 @@ opciones de regalo y capacidad para 100 personas. Este detalle solo se muestra d
 
 Las opciones públicas describen entregables y límites concretos:
 
-- Invitados adicionales en bloques de 50.
-- Galería privada con QR desde 500 fotos, carga desde el navegador sin instalar aplicaciones y
-  descarga consolidada.
-- Presentación de fotos en tiempo real como módulo separado; requiere galería, pantalla o
-  videobeam e internet estable en el lugar.
+- Invitados adicionales a $70.000 COP por cada bloque de 50.
+- Galería privada con QR: $250.000 COP hasta 500 fotos y $60.000 COP por cada bloque adicional de
+  500; incluye carga desde el navegador sin instalar aplicaciones y descarga consolidada.
+- Presentación de fotos en tiempo real por $70.000 COP como módulo separado. Se entrega un enlace
+  en pantalla completa para abrirlo desde un computador conectado a un televisor o videobeam.
+  El servicio no incluye equipos, operador ni la conexión a internet del lugar.
 - Moderación remota de fotos durante máximo cuatro horas.
 - Videos de invitados limitados a 100 clips de máximo 30 segundos.
 - Módulo de mesas limitado a 20 mesas.

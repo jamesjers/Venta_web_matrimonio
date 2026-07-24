@@ -32,7 +32,7 @@
             <div class="grid-2">
                 <div class="field">
                     <label>Precio mostrado</label>
-                    <input type="text" name="precio" value="{{ old('precio', $servicio->precio) }}" placeholder="Ej: $90.000 COP por cada 50" required>
+                    <input type="text" name="precio" value="{{ old('precio', $servicio->precio) }}" placeholder="Ej: $70.000 COP por cada 50" required>
                 </div>
                 <div class="field">
                     <label>Valor para el cálculo (COP)</label>
